@@ -1,3 +1,9 @@
+document.addEventListener("click", function() {
+    var music = document.getElementById("bgMusic");
+    if (music.paused) {
+        music.play();
+    }
+}, { once: true });
 var canvas = document.getElementById("starfield");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
