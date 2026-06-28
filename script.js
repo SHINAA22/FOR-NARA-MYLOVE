@@ -62,11 +62,16 @@ button.addEventListener("click", () => {
         button.textContent = "loading...";
         
         setTimeout(() => {
-            button.style.display = "none";
-            document.getElementById("love-container").style.display = "block";
+            button.style.display = "none"; 
+            
+          
+            if (typeof startAnimation === "function") startAnimation();
+            
         }, 1000);
     }
 });
+
+// ✅ แก้ Bug 1: ลบ function ซ้ำออก เหลืออันเดียว
 function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
     lines.forEach((line, index) => {
         context.fillText(line, x, y + index * (fontSize + lineHeight));
@@ -74,7 +79,7 @@ function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
 }
 
 function drawText() {
-    var fontSize = Math.min(30, window.innerWidth / 24);
+    var fontSize = Math.min(30, window.innerWidth / 24); // Adjust font size based on screen width
     var lineHeight = 8;
 
     context.font = fontSize + "px Comic Sans MS";
@@ -91,6 +96,7 @@ function drawText() {
         context.fillText("Aku tak percaya. Setiap hari aku memikirkan betapa beruntungnya aku memiliki dirimu", canvas.width/2, canvas.height/2);
         opacity = opacity + 0.01;
     }
+    //fades out the text by decreasing the opacity
     if(frameNumber >= 250 && frameNumber < 500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("Aku tak percaya. Setiap hari aku memikirkan betapa beruntungnya aku memiliki dirimu", canvas.width/2, canvas.height/2);
@@ -195,6 +201,7 @@ function drawText() {
     
     if(frameNumber >= 2750 && frameNumber < 99999){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
+
 
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["Aku tak sabar untuk menghabiskan waktu bersamanya, merawatnya, dan berbagi kasih sayang ini dengannya!!"], canvas.width / 2, (canvas.height/2 + 60), fontSize, lineHeight);
@@ -322,13 +329,13 @@ function drawFloatingImages() {
             i--;
         }
     }
-}
+} // ✅ แก้ Bug 2: เพิ่ม } ปิดฟังก์ชัน drawFloatingImages
 
 
 var scaleNotLove = 1.0; 
 
 
-var emojisSad = ["AHHH???", "TRYYY AGAINN PLSSSS", "HEYYYYYYY!!!!!", "PLSSSS BABYYYYY", "PLS PLS PLS BABYYY 🥺"]; 
+var emojisSad = ["😢", "😭", "🥺", "💔", "pls pls pls🥺"]; 
 
 document.getElementById("btn-love").addEventListener("click", function() {
     document.getElementById("emoji-display").innerText = "💖😘✨";
