@@ -8,7 +8,7 @@ var canvas = document.getElementById("starfield");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var context = canvas.getContext("2d", { willReadFrequently: true });
+var context = canvas.getContext("2d");
 var stars = 500;
 var colorrange = [0, 60, 240];
 var starArray = [];
@@ -37,6 +37,7 @@ var baseFrame = context.getImageData(0, 0, window.innerWidth, window.innerHeight
 function drawStars() {
     for (var i = 0; i < stars; i++) {
         var star = starArray[i];
+
         context.beginPath();
         context.arc(star.x, star.y, star.radius, 0, 360);
         context.fillStyle = "hsla(" + star.hue + ", " + star.sat + "%, 88%, " + star.opacity + ")";
@@ -52,18 +53,20 @@ function updateStars() {
     }
 }
 
+
+
 const button = document.getElementById("valentinesButton");
 
 button.addEventListener("click", () => {
     if (button.textContent === "Click Aku!! 💙") {
         button.textContent = "loading...";
+        
         setTimeout(() => {
             button.style.display = "none";
             document.getElementById("love-container").style.display = "block";
         }, 1000);
     }
 });
-
 function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
     lines.forEach((line, index) => {
         context.fillText(line, x, y + index * (fontSize + lineHeight));
@@ -77,6 +80,7 @@ function drawText() {
     context.font = fontSize + "px Comic Sans MS";
     context.textAlign = "center";
     
+   
     context.shadowColor = "rgba(45, 45, 255, 1)";
     context.shadowBlur = 8;
     context.shadowOffsetX = 0;
@@ -92,28 +96,37 @@ function drawText() {
         context.fillText("Aku tak percaya. Setiap hari aku memikirkan betapa beruntungnya aku memiliki dirimu", canvas.width/2, canvas.height/2);
         opacity = opacity - 0.01;
     }
-    if(frameNumber == 500){ opacity = 0; }
 
+    
+    if(frameNumber == 500){
+        opacity = 0;
+    }
     if(frameNumber > 500 && frameNumber < 750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
+
         if (window.innerWidth < 600) {          
             drawTextWithLineBreaks(["Di antara triliunan bintang, selama miliaran tahun... Aku menemukanmu, dan sekarang aku menginginkanmu..."], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
             context.fillText("Di antara triliunan bintang, selama miliaran tahun... Aku menemukanmu, dan sekarang aku menginginkanmu...", canvas.width/2, canvas.height/2);
         }
+
         opacity = opacity + 0.01;
     }
     if(frameNumber >= 750 && frameNumber < 1000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
+        
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["Di antara triliunan bintang, selama miliaran tahun... Aku menemukanmu, dan sekarang aku menginginkanmu..."], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
             context.fillText("Di antara triliunan bintang, selama miliaran tahun... Aku menemukanmu, dan sekarang aku menginginkanmu...", canvas.width/2, canvas.height/2);
         }
+
         opacity = opacity - 0.01;
     }
-    if(frameNumber == 1000){ opacity = 0; }
 
+    if(frameNumber == 1000){
+        opacity = 0;
+    }
     if(frameNumber > 1000 && frameNumber < 1250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("Aku ingin menikahimu dan menghabiskan hidupku bersamamu selamanya", canvas.width/2, canvas.height/2);
@@ -124,8 +137,10 @@ function drawText() {
         context.fillText("Aku ingin menikahimu dan menghabiskan hidupku bersamamu selamanya", canvas.width/2, canvas.height/2);
         opacity = opacity - 0.01;
     }
-    if(frameNumber == 1500){ opacity = 0; }
 
+    if(frameNumber == 1500){
+        opacity = 0;
+    }
     if(frameNumber > 1500 && frameNumber < 1750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("Itu luar biasa dan merupakan hal paling beruntung yang pernah ada", canvas.width/2, canvas.height/2);
@@ -136,45 +151,57 @@ function drawText() {
         context.fillText("Itu luar biasa dan merupakan hal paling beruntung yang pernah ada", canvas.width/2, canvas.height/2);
         opacity = opacity - 0.01;
     }
-    if(frameNumber == 2000){ opacity = 0; }
 
+    if(frameNumber == 2000){
+        opacity = 0;
+    }
     if(frameNumber > 2000 && frameNumber < 2250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
+
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["Tapi sekarang aku akan kembali menerima cinta dari seseorang yang mengerti aku"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
             context.fillText("Tapi sekarang aku akan kembali menerima cinta dari seseorang yang mengerti aku", canvas.width/2, canvas.height/2);
         }
+
         opacity = opacity + 0.01;
     }
     if(frameNumber >= 2250 && frameNumber < 2500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
+
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["and yet here I am to get the impossible", "chance to get to know you"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
             context.fillText("Tapi sekarang aku akan kembali menerima cinta dari seseorang yang mengerti aku", canvas.width/2, canvas.height/2);
         }
+        
         opacity = opacity - 0.01;
     }
-    if(frameNumber == 2500){ opacity = 0; }
 
+    if(frameNumber == 2500){
+        opacity = 0;
+    }
     if(frameNumber > 2500 && frameNumber < 99999){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
+
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["Aku sangat mencintaimu Nara lebih dari seluruh waktu dan ruang di alam semesta dapat menampungnya"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
             context.fillText("Aku sangat mencintaimu Nara lebih dari seluruh waktu dan ruang di alam semesta dapat menampungnya", canvas.width/2, canvas.height/2);
         }
+
         opacity = opacity + 0.01;
     }
     
     if(frameNumber >= 2750 && frameNumber < 99999){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
+
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["Aku tak sabar untuk menghabiskan waktu bersamanya, merawatnya, dan berbagi kasih sayang ini dengannya!!"], canvas.width / 2, (canvas.height/2 + 60), fontSize, lineHeight);
         } else {
             context.fillText("Aku tak sabar untuk menghabiskan waktu bersamanya, merawatnya, dan berbagi kasih sayang ini dengannya!!", canvas.width/2, (canvas.height/2 + 50));
         }
+
         secondOpacity = secondOpacity + 0.01;
     }
 
@@ -182,21 +209,25 @@ function drawText() {
         context.fillStyle = `rgba(45, 45, 255, ${thirdOpacity})`;
         context.fillText("Semoga kalian berdua bahagia bersama untuk waktu yang lama <3", canvas.width/2, (canvas.height/2 + 120));
         thirdOpacity = thirdOpacity + 0.01;
+
         document.getElementById("valentinesButton").style.display = "block";
     }   
 
-    context.shadowColor = "transparent";
-    context.shadowBlur = 0;
-    context.shadowOffsetX = 0;
-    context.shadowOffsetY = 0;
+    
+     context.shadowColor = "transparent";
+     context.shadowBlur = 0;
+     context.shadowOffsetX = 0;
+     context.shadowOffsetY = 0;
 }
 
 function draw() {
     context.putImageData(baseFrame, 0, 0);
+
     drawStars();
     updateStars();
     drawFloatingImages();
     drawText();
+
     if (frameNumber < 99999) {
         frameNumber++;
     }
@@ -243,10 +274,12 @@ var imgUrls = [
 
 var floatingImages = [];
 
+
 function spawnFloatingImage() {
     if (frameNumber >= 210 && frameNumber % 60 === 0 && floatingImages.length < 15) { 
         var img = new Image();
         img.src = imgUrls[Math.floor(Math.random() * imgUrls.length)];
+        
         floatingImages.push({
             image: img,
             x: Math.random() * (canvas.width - 120),
@@ -260,23 +293,30 @@ function spawnFloatingImage() {
     }
 }
 
+
 function drawFloatingImages() {
     spawnFloatingImage();
+    
     for (var i = 0; i < floatingImages.length; i++) {
         var p = floatingImages[i];
         p.y -= p.speed; 
         p.angle += p.spin; 
+        
         if (p.opacity < 1 && p.y > 100) p.opacity += 0.02; 
         if (p.y < 100) p.opacity -= 0.02; 
+        
         context.save();
         context.globalAlpha = Math.max(0, p.opacity);
         context.translate(p.x + p.size/2, p.y + p.size/2);
         context.rotate(p.angle);
+        
         context.beginPath();
         context.arc(-p.size/2 + 10, -p.size/2 + 10, 10, Math.PI, Math.PI * 1.5);
         context.closePath();
-        if (p.image.complete && p.image.naturalWidth > 0) { context.drawImage(p.image, -p.size/2, -p.size/2, p.size, p.size); }
+        
+        context.drawImage(p.image, -p.size/2, -p.size/2, p.size, p.size);
         context.restore();
+        
         if (p.y < -150) {
             floatingImages.splice(i, 1);
             i--;
@@ -284,40 +324,27 @@ function drawFloatingImages() {
     }
 }
 
-// ==========================================
-// LOVE / NOT LOVE BUTTON LOGIC
-// ==========================================
 
-var scaleNotLove = 1.0;
-var notLoveCount = 0;
+var scaleNotLove = 1.0; 
 
-var notLoveMessages = [
-    { emoji: "😢💔", text: "Yakin nih? Coba pikir lagi deh..." },
-    { emoji: "😭😭", text: "Kamu serius?? Coba jawab sekali lagi ya..." },
-    { emoji: "🥺🥺🥺", text: "Ini kesempatan terakhirmu lho... Yakin tidak cinta?" }
-];
+
+var emojisSad = ["AHHH???", "TRYYY AGAINN PLSSSS", "HEYYYYYYY!!!!!", "PLSSSS BABYYYYY", "PLS PLS PLS BABYYY 🥺"]; 
 
 document.getElementById("btn-love").addEventListener("click", function() {
     document.getElementById("emoji-display").innerText = "💖😘✨";
-    document.getElementById("notlove-message").innerText = "";
-    alert("Hore!!! Aku paling menyayangimu, Nara!!! 😖💕");
+    alert("Hore!!! Aku sangat mencintaimu lho!!! 💕"); 
 });
+
 
 document.getElementById("btn-notlove").addEventListener("click", function() {
     scaleNotLove -= 0.25;
-    notLoveCount++;
-
-    var msgIndex = Math.min(notLoveCount - 1, notLoveMessages.length - 1);
-    var msg = notLoveMessages[msgIndex];
-
-    document.getElementById("emoji-display").innerText = msg.emoji;
-    document.getElementById("notlove-message").innerText = msg.text;
-
+    
     if (scaleNotLove <= 0.1) {
-        document.getElementById("btn-notlove").style.display = "none";
-        document.getElementById("emoji-display").innerText = "😭😭😭";
-        document.getElementById("notlove-message").innerText = "Oke... tapi aku tetap menyayangimu 💔";
+        document.getElementById("btn-notlove").style.display = "none"; 
+        document.getElementById("emoji-display").innerText = "😭😭😭😭";
     } else {
         document.getElementById("btn-notlove").style.transform = "scale(" + scaleNotLove + ")";
+        var randomSad = emojisSad[Math.floor(Math.random() * emojisSad.length)];
+        document.getElementById("emoji-display").innerText = randomSad;
     }
 });
