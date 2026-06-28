@@ -2,23 +2,21 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Valentine</title>
+    <title>For My Love</title>
     <link rel="stylesheet" href="public/style.css">
 </head>
 <body>
     <canvas id="starfield"></canvas>
-    
     <div class="container">
-        <button id="valentinesButton">Click Aku!! 💙</button>
-        
-        <div id="love-container" style="display: none;">
+        <div id="love-container">
             <h1 id="emoji-display">💖</h1>
+            <!-- เพิ่มส่วนนี้เพื่อแสดงรูป -->
+            <img id="photo-display" src="" style="display:none; max-width: 300px; border-radius: 15px; margin: 20px;">
+            <br>
             <button id="btn-love">Love you!!</button>
             <button id="btn-notlove">Not really...</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
