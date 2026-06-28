@@ -51,7 +51,7 @@ animate();
 var imgUrls = [
     "public/images/photo1.jpg.jpg", "public/images/photo2.jpg.jpg", "public/images/photo3.jpg.jpg",
     "public/images/photo4.jpg.jpg", "public/images/photo5.jpg.jpg", "public/images/photo6.jpg.jpg",
-    "public/images/photo7.jpg.jpg", "public/images/photo8.jpg.jpg", "public/images/photo9.jpg.jpg",
+     "public/images/photo8.jpg.jpg", "public/images/photo9.jpg.jpg",
     "public/images/photo10.jpg.jpg", "public/images/photo11.jpg.jpg", "public/images/photo12.jpg.jpg",
     "public/images/photo13.jpg.jpg", "public/images/photo14.jpg.jpg", "public/images/photo15.jpg.jpg",
     "public/images/photo16.jpg.jpg", "public/images/photo17.jpg.jpg", "public/images/photo18.jpg.jpg",
